@@ -250,6 +250,9 @@ let a = great_struct::GS;
 ```
 
 ## Module 3 Exercises
+
+You do not need to submit any code for module 3. However, we strongly encourage you to go over the next 3 steps to not incur technical debt during the first week of the quarter :) Becoming familiar with these tools will go a long way later in the quarter.
+
 1. Run clippy on the given code. Look at the suggestions it gives and make the correct changes.
 2. Go back to your Module 1 and 2 exercises and run ```cargo fmt```.
 3. Create a generic struct for an Animal, containing name, animal type, and age. Then, intitialize 3 different animals, and 
