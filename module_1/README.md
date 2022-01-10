@@ -317,9 +317,9 @@ support matures.
 
 ## Module 1 Exercises:
 
-Clone this repository in a computer with the Rust environment installed and go to module_1_exercises to access the code necessary to complete this module. You will find the repo has a Cargo.toml file, which defines the project. In this case, the Cargo.toml file is very simple (take a look!) but once you transition to working on crusty it'll become a bit more complex and you'll have to be familiar with its syntax to be productive.
+Clone this repository in a computer with the Rust environment installed and go to module_1_exercises to access the code necessary to complete this module. You will find the repo has a Cargo.toml file, which defines the project. In this case, it is very simple (take a look!) but once you transition to working on crusty it'll become a bit more complex and you'll have to be familiar with its syntax to be productive.
 
-Place all the structs and functions we ask you to write in a file called ```solutions.rs``` within src so that our autograder can process your submission.
+Complete the following exercises and put all code in ```solution.rs```. Function and struct declarations are already provided to you, so put the code needed to complete the exercises there. To test, can either write your own tests or use ```main.rs```, but neither your tests or anything you write in ```main.rs``` will be used for grading: only what's in ```solution.rs```.
 
 - Here are some exercises to help you practice the Rust programming concepts introduced in Module 1:
     1. Create a Hello World function (call it hello()) that returns "Hello World!"

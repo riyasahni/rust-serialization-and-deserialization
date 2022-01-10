@@ -1,7 +1,5 @@
 ## Setup instructions
-Place all the structs and functions we ask you to write in a file called `solutions.rs` within `src` so that our autograder can process your submission.
-
-When working on this module, you can either have a `main.rs` and use these functions in a main method, or you can use a `lib.rs` and write tests directly and run them via `cargo test`.
+Complete the following exercises and put all code in ```solution.rs```. Function and struct declarations are already provided to you, so put the code needed to complete the exercises there. To test, can either write your own tests or use ```main.rs```, but neither your tests or anything you write in ```main.rs``` will be used for grading: only what's in ```solution.rs```.
 
 1. Define a trait called *Geometry* that has two methods: *get_area* and *get_name*. Then implement that trait on two types - *Rectangle* and *Circle*. *get_area* should return a float (use f64). *get_name* should return the name of the shape as a String. You can import PI via *use std::f64::consts::PI*. 
 

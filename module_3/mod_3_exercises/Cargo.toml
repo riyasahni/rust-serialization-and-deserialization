@@ -1,0 +1,14 @@
+[package]
+name = "mod_3"
+version = "0.1.0"
+authors = [ 
+    "emmamrosenthal <emmamrosenthal@gmail.com>",
+    "Raul Castro Fernandez <raulcf@uchicago.edu>",
+    "Aaron Elmore <aelmore@cs.uchicago.edu>",
+]
+
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]

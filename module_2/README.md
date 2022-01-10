@@ -416,7 +416,7 @@ Read more about enums and matching in the [Rust Book](https://doc.rust-lang.org/
 
 
 ## [Module 2 Exercises]
-As a quick note: you may need to make several fields/functions public via the ```pub``` keyword to allow it to be seen by the autograder
+Complete the following exercises and put all code in ```solution.rs```. Function and struct declarations are already provided to you, so put the code needed to complete the exercises there. To test, can either write your own tests or use ```main.rs```, but neither your tests or anything you write in ```main.rs``` will be used for grading: only what's in ```solution.rs```.
 
 1. Ownership task. Define a function ```plus_one``` which takes in a reference to a mut i32 and increments it. 
 2. Struct & Impl:
