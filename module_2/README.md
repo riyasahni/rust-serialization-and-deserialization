@@ -354,7 +354,7 @@ If you are not used to languages with a pattern-matching feature, you'll love th
 For example, this match expression would print "three"
 
 ```rust
-let x = 1;
+let x = 3;
 
 match x {
     1 => println!("one"),
