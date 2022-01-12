@@ -205,6 +205,21 @@ emp1.company = String::from("Different Company");
 
 after making the appropriate value mutable.
 
+Note that if you want a function or module, which defined outside of the struct's file, to be able to read and write a struct member, you will need to declare the
+members a pub (e.g. public). The notion of public/visibility applies to functions, structs, uses, and more.  [The rust book has more on visibility/scoping](https://doc.rust-lang.org/book/ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html). The compiler will warn you if something is not visible and you need to mark it pub. Deciding what should 
+be exposed to modules/interfaces is an important part of design. It is always good to think about, should anothe module be aware of this thing and have the ability to change it.
+If you are interested in this, the book `A Philosophy of Software Design` by Ousterhout is a read.
+
+```rust
+// declaring an employee structure with the struct Employee, and members/variables name and company as public
+pub struct Employee {
+    pub name: String,
+    pub company: String, 
+    age: u32,
+    active: Boolean
+}
+```
+
 ## Implementation and Methods with Structs
 
 The ```impl``` keyword is primarily used to define implementations on types. Both functions and consts can be defined in an implementation. For example, to implement a rectangle struct, we could do:
