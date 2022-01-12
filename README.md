@@ -1,5 +1,7 @@
 # RUST-PRIMER
 
+(TESTING TO SEE IF I DID THIS CORRECTLY)
+
 In this class, we use the Rust Programming Language for most of the programming assignments. Rust is a safe modern systems programming language. It has a higher learning curve than languages such as Go or Python. However, the language has a very helpful compiler. Once you get the gist of how the compiler communicates errors to users, you will hopefully find it is a useful tool to learn the language and write correct programs.
 
 This primer is a series of short introductions to Rust concepts and pointers to the Rust book relevant chapters. It is not meant to be self-contained, but rather as an initial approach to the language that hopefully helps you get started with it and be successful in the class. You can find the Rust book at [https://doc.rust-lang.org/book/](https://doc.rust-lang.org/book/). The Rust book is a great (free) resource for learning Rust and we strongly recommend you consult it often as you go through this primer to make sure you understand all concepts.
