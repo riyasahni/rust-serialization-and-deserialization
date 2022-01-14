@@ -30,10 +30,20 @@ fn main(){
     Note if this changes your formatting.
 
     // no particular change in formatting with Module 1...
-    
+    // changes to Module 2 included: getting rid of ; for bool responses
+    // and adding a comma to the last attribute in the struct I created for the last task
+*/
+
+/*
     TASK 3
     *******
     Generics Task:
     Create a generic struct for an Animal, containing name, animal type, and age. 
     Then, intitialize 3 different animals, and run cargo build to make sure your animals were initialized correctly.
 */
+struct Animal<T, U> {
+    name: T,
+    animal_type: T,
+    age: U,
+}
+
