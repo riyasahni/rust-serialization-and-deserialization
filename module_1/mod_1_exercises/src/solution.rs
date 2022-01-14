@@ -3,9 +3,9 @@ pub fn hello() -> &'static str {
 }
 
 pub fn is_leap_year(yr: i32) -> bool {
-    if {yr % 4 == 0 && yr % 100 != 0} || yr % 400 == 0 {
-        return true
+    if { yr % 4 == 0 && yr % 100 != 0 } || yr % 400 == 0 {
+        return true;
     } else {
-        return false
+        return false;
     }
 }
