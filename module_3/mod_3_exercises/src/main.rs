@@ -30,6 +30,6 @@ fn task1() {
     TASK 3
     *******
     Generics Task:
-    Create an animal trait, with characteristics such as type, and weight. Then initialize two different animal structs using the animal trait.
-
+    Create a generic struct for an Animal, containing name, animal type, and age. 
+    Then, intitialize 3 different animals, and run cargo build to make sure your animals were initialized correctly.
 */
