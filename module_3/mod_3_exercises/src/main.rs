@@ -14,11 +14,14 @@ fn task1() {
 
     let mut res = 42;
     let option = Some(12);
-    for x in option {
+    if let Some(x) = option {
         // clippy will suggest changing this to 'if let Some(x) = option'
         res += x;
     }
     println!("{}", res);
+}
+fn main(){
+    task1()
 }
 /*
     TASK 2
@@ -26,7 +29,8 @@ fn task1() {
     Go back to the exercises in Module 1 and Module 2 and run cargo fmt
     Note if this changes your formatting.
 
-
+    // no particular change in formatting with Module 1...
+    
     TASK 3
     *******
     Generics Task:

@@ -1,4 +1,4 @@
-use solution::{plus_one, Rectangle, Coin, coin_value};
+use solution::{coin_value, plus_one, Coin, Rectangle};
 
 #[test]
 fn test_incr() {
@@ -38,5 +38,3 @@ fn test_area_struct() {
 fn test_coins() {
     assert_eq!(coin_value(Coin::Nickel), 5);
 }
-
-
