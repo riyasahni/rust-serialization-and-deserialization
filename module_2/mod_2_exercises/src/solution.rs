@@ -8,7 +8,7 @@ Step 1: Write a function that increments a number by 1.
 */
 
 pub fn plus_one(n: &mut i32) {
-    *n = *n+1
+    *n = *n + 1
 }
 
 /*
@@ -29,9 +29,9 @@ pub struct Rectangle {
 impl Rectangle {
     pub fn is_square(&self) -> bool {
         if self.width == self.height {
-            return true
+            return true;
         } else {
-            return false
+            return false;
         }
     }
 
@@ -59,6 +59,6 @@ pub fn coin_value(coin: Coin) -> u8 {
         Coin::Penny => return 1,
         Coin::Nickel => return 5,
         Coin::Dime => return 10,
-        Coin::Quarter => return 25
+        Coin::Quarter => return 25,
     }
 }
