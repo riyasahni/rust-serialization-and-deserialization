@@ -12,14 +12,22 @@ pub struct Rectangle {
     pub width: f64,
 }
 
-impl Geometry for Rectangle {}
+impl Geometry for Rectangle {
+    fn get_area(&self) -> f64 {
+        self.length*self.width
+    }
+    fn get_name(&self) -> String {
+        print!("{}", &self)
+    }
+}
 
 
 pub struct Circle {
     pub radius: f64,
 }
 
-impl Geometry for Circle {}
+impl Geometry for Circle {
+}
 
 struct Counter {
     count: i32
