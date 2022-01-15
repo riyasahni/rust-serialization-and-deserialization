@@ -17,7 +17,8 @@ impl Geometry for Rectangle {
         self.length*self.width
     }
     fn get_name(&self) -> String {
-        print!("{}", &self)
+        let name = "Rectangle";
+        name.to_string()
     }
 }
 
@@ -27,6 +28,13 @@ pub struct Circle {
 }
 
 impl Geometry for Circle {
+    fn get_area(&self) -> f64 {
+        PI*self.radius*self.radius
+    }
+    fn get_name(&self) -> String {
+        let name = "Circle";
+        name.to_string()
+    }
 }
 
 struct Counter {
@@ -34,21 +42,25 @@ struct Counter {
 }
 
 // define a function incr() to increment count in Counter by 1
-fn incr() {}
+fn incr(Counter { count }: Counter) {
+    count+=1;
+}
 
 fn counter() {
     // declare a counter
-
+    let mut c = Counter { count: 0};
     // spawn a thread here to call incr() 50 times
     let handle = thread::spawn(move|| {
-        for _i in [??] {
-            println!("thread spawned count {}", [??]);
+        for _i in [0..50] {
+            incr(c);
+            println!("thread spawned count {}", c.count);
         }
     });
 
     // in the main thread, call incr() 50 times
-    for _i in [??] {
-        println!("thread main count {}", [??]);
+    for _i in [0..50] {
+        incr(c);
+        println!("thread main count {}", c.count);
     }
     handle.join().unwrap();
 }
