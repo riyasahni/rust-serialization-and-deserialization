@@ -1,4 +1,7 @@
 use std::f64::consts::PI;
+//use std::net::Ipv6MulticastScope;
+//use std::fmt::rt::v1::Count;
+//use std::fmt::write;
 use std::thread;
 use std::sync::{Arc, RwLock, Mutex};
 
@@ -42,25 +45,27 @@ struct Counter {
 }
 
 // define a function incr() to increment count in Counter by 1
-fn incr(Counter { count }: Counter) {
+fn incr( Counter { mut count }: Counter) {
     count+=1;
 }
 
 fn counter() {
     // declare a counter
-    let mut c = Counter { count: 0};
+    let c = Mutex:: new(RwLock:: new(Counter { count: 0}));
     // spawn a thread here to call incr() 50 times
     let handle = thread::spawn(move|| {
+        let mut c1 = c.lock().unwrap();
         for _i in [0..50] {
-            incr(c);
-            println!("thread spawned count {}", c.count);
+            incr(c1);
+            println!("thread spawned count {}", c1.count);
         }
     });
 
     // in the main thread, call incr() 50 times
+    let mut c2 = c.clone().write().unwrap();
     for _i in [0..50] {
-        incr(c);
-        println!("thread main count {}", c.count);
+        incr(*c2);
+        println!("thread main count {}", c2.count);
     }
     handle.join().unwrap();
 }
