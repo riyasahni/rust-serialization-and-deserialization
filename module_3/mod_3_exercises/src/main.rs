@@ -20,9 +20,7 @@ fn task1() {
     }
     println!("{}", res);
 }
-fn main(){
-    task1()
-}
+
 /*
     TASK 2
     *******
@@ -45,5 +43,30 @@ struct Animal<T, U> {
     name: T,
     animal_type: T,
     age: U,
+}
+
+fn main(){
+
+    task1();
+
+    let _snake = Animal {
+        name: "Barry",
+        animal_type: "Boa",
+        age: 12,
+    };
+
+    let _sloth= Animal {
+        name: "Garry",
+        animal_type: "Pygmy",
+        age: 4,
+    };
+
+    let _penguin= Animal {
+        name: "Larry",
+        animal_type: "Reptile",
+        age: 81,
+    };
+
+   
 }
 
