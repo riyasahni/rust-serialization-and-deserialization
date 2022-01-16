@@ -1,3 +1,4 @@
+//use core::num;
 use std::f64::consts::PI;
 //use std::net::Ipv6MulticastScope;
 //use std::fmt::rt::v1::Count;
@@ -45,27 +46,38 @@ struct Counter {
 }
 
 // define a function incr() to increment count in Counter by 1
-fn incr( Counter { mut count }: Counter) {
-    count+=1;
+
+trait Increment {
+fn incr (&mut self);
 }
 
-fn counter() {
+impl Increment for Counter {
+
+    fn incr(&mut self) {
+        self.count += 1;
+    }
+}
+
+pub fn counter() {
     // declare a counter
-    let c = Mutex:: new(RwLock:: new(Counter { count: 0}));
+    let c = Arc::new(Mutex::new(Counter { count: 0 }));
     // spawn a thread here to call incr() 50 times
+    let cloned1 = Arc::clone(&c);
     let handle = thread::spawn(move|| {
-        let mut c1 = c.lock().unwrap();
         for _i in [0..50] {
-            incr(c1);
-            println!("thread spawned count {}", c1.count);
+            let mut num = cloned1.lock().unwrap();
+            num.incr();
+            println!("thread spawned count {:#?}", _i);
         }
     });
 
     // in the main thread, call incr() 50 times
-    let mut c2 = c.clone().write().unwrap();
-    for _i in [0..50] {
-        incr(*c2);
-        println!("thread main count {}", c2.count);
+    //let c2 = c.clone().write().unwrap();
+    let cloned2= Arc::clone(&c);
+    for _i in [50..100] {
+        let mut num2 = cloned2.lock().unwrap();
+        num2.incr();
+        println!("thread main count {:#?}", _i);
     }
     handle.join().unwrap();
 }
@@ -76,7 +88,7 @@ fn counter() {
  *  and the other with RwLocks. What differences do you observe in their behavior/output? Does
  *  this match your understanding of how Read/Write locks work?
  */
-fn read_write() {
+pub fn read_write() {
     let lock = Arc::new(Mutex::new(0));
     let mut handles = Vec::with_capacity(10);
 
