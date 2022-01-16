@@ -1,4 +1,5 @@
 use solution::{counter, read_write};
 fn main() {
-    counter()
+    counter();
+    read_write()
 }

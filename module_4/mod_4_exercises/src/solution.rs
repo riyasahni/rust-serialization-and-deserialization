@@ -72,9 +72,8 @@ pub fn counter() {
     });
 
     // in the main thread, call incr() 50 times
-    //let c2 = c.clone().write().unwrap();
     let cloned2= Arc::clone(&c);
-    for _i in [50..100] {
+    for _i in [0..50] {
         let mut num2 = cloned2.lock().unwrap();
         num2.incr();
         println!("thread main count {:#?}", _i);
@@ -89,14 +88,15 @@ pub fn counter() {
  *  this match your understanding of how Read/Write locks work?
  */
 pub fn read_write() {
-    let lock = Arc::new(Mutex::new(0));
+   // let lock = Arc::new(Mutex::new(0));
+   let lock = Arc::new(RwLock::new(0));
     let mut handles = Vec::with_capacity(10);
 
     for _i in 0..10 {
         let reader_lock = lock.clone();
         let reader = thread::spawn(move || {
             for _j in 0..20 {
-                let r = reader_lock.lock().unwrap();
+                let r = reader_lock.read().unwrap();
                 println!("Read value as {}", *r);
             }
         });
@@ -104,7 +104,7 @@ pub fn read_write() {
     }
 
     for _j in 0..20 {
-        let mut val = lock.lock().unwrap();
+        let mut val = lock.write().unwrap();
         *val += 1;
         println!("Incremented value by 1 to {}", *val);
     }
@@ -113,3 +113,10 @@ pub fn read_write() {
         handle.join().unwrap();
     }
 }
+//With the Mutex lock, the reading happens after the writing. First, I notice that the value is
+//incremented from 1 to .. 20, and then "Read value as 20" happens. But after I switch to RwLocks,
+//the reading happens before the writing. First, "Read value as 0" happens, and then the value is
+//incremented from 1 to .. 20. This makes sense, since from my understanding of Read/Write locks,
+//any number of readers can acquire the lock so long as there is no writer. But the Mutex lock 
+//doesn't distinguish between readers and writers, so it blocks threads that wait for the block to
+//become available. This is why I think the value is incremented before it is read when we use Mutex.
