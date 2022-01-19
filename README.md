@@ -35,3 +35,16 @@ Last, you will need to install the Rust environment (or use a computer with the 
 ## [Module 4](/module_4/README.md)
 - Traits
 - Useful Rust Standard Library Types (rc / arc / mutex / rwlock)
+
+
+## [Module 5](/module_5/README.md)
+Module 5 focuses on serialization and deserialization, which is a basic but significant mechanism of converting the state of an object into a byte stream and the other way around.
+
+- Serde Part 1
+- Serde Part 2
+- Serde Part 3
+- Result Option
+
+## [Module 6](/module_6/README.md)
+Module 6 provides an overall picture of CrustyDB by proposing some guiding questions before we get our hands dirty on it. 
+- CrustyDB Walkthough 
