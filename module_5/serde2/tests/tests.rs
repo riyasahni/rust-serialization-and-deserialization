@@ -7,7 +7,7 @@ fn test_serialize_deserialize_data_to_disk() {
     let mut data = Vec::new();
     let filename = "data_test.bin";
 
-    for i in 0..=n1 {
+    for i in 0..n1 {
         data.push(counter);
         counter += 1;
     }
