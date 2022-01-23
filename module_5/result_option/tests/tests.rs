@@ -33,8 +33,8 @@ fn test_has_topping()  {
     assert!(za.add_topping(Toppings::Sausage).is_ok());
     assert!(za.add_topping(Toppings::Sausage).is_ok());
     //This passes but is bad form... Can you fix it?
-    assert_eq!(2, za.has_topping(&Toppings::Sausage).unwrap());
+    assert_eq!(Some(2), za.has_topping(&Toppings::Sausage));
     //FIXME, this does not use the interface correctly
-    assert_eq!(0, za.has_topping(&Toppings::Spinach).unwrap());
+    assert_eq!(None, za.has_topping(&Toppings::Spinach));
 
 }

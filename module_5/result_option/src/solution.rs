@@ -8,6 +8,7 @@ pub enum Toppings {
     Oreos,
 }
 
+
 pub struct Pizza {
     toppings: Vec<Toppings>
 }
@@ -26,7 +27,7 @@ impl Pizza {
         // FIX THIS FUNCTION     
         // unwraps should only be called if we want the program to crash or 
         // are 100% certain the results is OK or some
-        check_topping(&topping).unwrap();
+        check_topping(&topping)?;
         self.toppings.push(topping);
         Ok(())
 
@@ -34,6 +35,8 @@ impl Pizza {
 
     /// See if this pizza has a topping and how many times it was added.
     /// Return none if it was never added
+    /// 
+
     pub fn has_topping(&self, topping: &Toppings) -> Option<usize> {
         let count = self.toppings.iter().filter(|x| *x == topping).count();
         if count > 0 {
@@ -55,7 +58,15 @@ pub fn check_topping(topping: &Toppings) -> Result<(), PizzaError> {
         Toppings::Pineapple => Ok(()),
         Toppings::Spinach => Ok(()),
         Toppings::Sausage => Ok(()),
-        _ => Err(PizzaError{}), // Everything else is bad news. What kind of monster would do that?
+        Toppings::Cheetos => Err(PizzaError{}),
+        Toppings::Oreos => Err(PizzaError{}),
+
+        /*Ok(()) => Toppings::Onion,
+        Ok(()) => Toppings::Sausage,
+        Ok(()) => Toppings::Pineapple,
+        Err(_) => panic!("Fatal error"),*/
+
+         // Everything else is bad news. What kind of monster would do that?
     }
 }
 
