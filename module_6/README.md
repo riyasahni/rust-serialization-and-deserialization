@@ -15,7 +15,13 @@ will (likely) need to put in practice many times in the future.
 
 1. Look at the module 1 README to understand crusty-cli. What is the function that actually reads user input? 
 
+Does the backslash "\" followed by a charactor/word and parameters read in the user input? Is this the "function" that's being talked about?
+
 2. Place the following components in the order they occur and identify (on a very high level) the purpose of each: Parser, Executor, Optimizer
+
+Parser - parses the command that the user inputs to the machine into a "tree" or data structure..
+Optimizer - figures out how to make the parsed command as cheap to execute as possible
+Executor - executes the parsed & optimized command from the user.
 
 3. Crusty supports two commands right now: CREATE and something else. What is the other SQL command? 
     -   Hint: you’ll have to go carefully through the above function and follow through on the different paths it can take to answer this question.
